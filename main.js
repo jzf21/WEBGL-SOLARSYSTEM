@@ -107,7 +107,7 @@ const moonTexture = new THREE.TextureLoader().load("./assets/sun.jpg");
 const normalTexture = new THREE.TextureLoader().load("./assets/normal.jpg");
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(20, 32, 32),
+  new THREE.SphereGeometry(21, 32, 32),
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     normalMap: normalTexture,
@@ -180,7 +180,7 @@ mars.position.setX(-10);
 
 const jupiterTexture = new THREE.TextureLoader().load("./assets/jupiter.jpg");
 const jupiter = new THREE.Mesh(
-  new THREE.SphereGeometry(14, 32, 32),
+  new THREE.SphereGeometry(17, 32, 32),
   new THREE.MeshStandardMaterial({
     map: jupiterTexture,
     normalMap: normalTexture,
@@ -221,7 +221,7 @@ ring.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 4);
 
 const uranusTexture = new THREE.TextureLoader().load("./assets/uranus.jpg");
 const uranus = new THREE.Mesh(
-  new THREE.SphereGeometry(7, 32, 32),
+  new THREE.SphereGeometry(12, 32, 32),
   new THREE.MeshStandardMaterial({
     map: uranusTexture,
     normalMap: normalTexture,
@@ -235,7 +235,7 @@ uranus.position.setX(-10);
 
 const neptuneTexture = new THREE.TextureLoader().load("./assets/neptune.jpg");
 const neptune = new THREE.Mesh(
-  new THREE.SphereGeometry(8, 32, 32),
+  new THREE.SphereGeometry(13, 32, 32),
   new THREE.MeshStandardMaterial({
     map: neptuneTexture,
     normalMap: normalTexture,
@@ -273,9 +273,9 @@ function animate() {
   k+=0.008;
   
   
-  earth.rotation.x += 0.001;
-  earth.rotation.y += 0.005;
-  earth.rotation.z += 0.0001;
+  earth.rotation.x += 0.01;
+  earth.rotation.y += 0.01;
+  earth.rotation.z += 0.009;
   jupiter.rotation.x += 0.001;
   jupiter.rotation.y += 0.005;
   jupiter.rotation.z += 0.0001;
@@ -301,24 +301,24 @@ function animate() {
 
   neptune.rotation.y += 0.005;
   neptune.rotation.z += 0.0001;
-  mercury.position.x = 60*Math.cos(t*6);
-  mercury.position.z = 60*Math.sin(t*6);
-  venus.position.x = 85*Math.cos(t*4);
-  venus.position.z = 85*Math.sin(t*4);
-  earth.position.x = 105*Math.cos(t*2+2);
-  earth.position.z = 105*Math.sin(t*2+2);
-  mars.position.x = 130*Math.cos(t+7);
-  mars.position.z = 130*Math.sin(t+7);
-  jupiter.position.x = 170*Math.cos(t);
-  jupiter.position.z = 170*Math.sin(t);
-  saturn.position.x = 190*Math.cos(t*1.1-1);
-  saturn.position.z = 190*Math.sin(t*1.1-1);
-    ring.position.x = 190 * Math.cos(t*1.1 - 1);
-    ring.position.z = 190 * Math.sin(t*1.1 - 1);
-  uranus.position.x = 220*Math.cos(k*0.3);
-  uranus.position.z = 220*Math.sin(k*0.3);
-  neptune.position.x = 250*Math.cos(t*1.2);
-  neptune.position.z = 250*Math.sin(t*1.2);
+  mercury.position.x = 100*Math.cos(t*6);
+  mercury.position.z = 100*Math.sin(t*6);
+  venus.position.x = 135*Math.cos(t*5);
+  venus.position.z = 135*Math.sin(t*5);
+  earth.position.x = 155*Math.cos(t*2);
+  earth.position.z = 155*Math.sin(t*2);
+  mars.position.x = 190*Math.cos(t+7);
+  mars.position.z = 190*Math.sin(t+7);
+  jupiter.position.x = 280*Math.cos(t);
+  jupiter.position.z = 280*Math.sin(t);
+  saturn.position.x = 300*Math.cos(t*1.1-1);
+  saturn.position.z = 200*Math.sin(t*1.1-1);
+    ring.position.x = 300 * Math.cos(t*1.1 - 1);
+    ring.position.z = 300 * Math.sin(t*1.1 - 1);
+  uranus.position.x = 350*Math.cos(k*0.3);
+  uranus.position.z = 350*Math.sin(k*0.3);
+  neptune.position.x = 400*Math.cos(t*1.2);
+  neptune.position.z = 400*Math.sin(t*1.2);
 
 
   
