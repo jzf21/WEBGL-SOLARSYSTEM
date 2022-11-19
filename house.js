@@ -1,28 +1,42 @@
-import './style.css';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import "./style.css";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 // Setup
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
 
 const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
+  canvas: document.querySelector("#bg"),
 });
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(120);
-camera.position.setX(-40);
+camera.position.setZ(30);
+camera.position.setX(-3);
 
 renderer.render(scene, camera);
 
+// const linematerial = new THREE.LineBasicMaterial({ color: 0x0000ff });
+// const points = [];
+// points.push(new THREE.Vector3(-10, 0, 0));
+// points.push(new THREE.Vector3(0, 10, 0));
+// points.push(new THREE.Vector3(10, 0, 0));
 
+// const linegeometry = new THREE.BufferGeometry().setFromPoints(points);
+// const line = new THREE.Line(linegeometry, linematerial);
+// scene.add(line);
+// renderer.render(scene, camera);
 // Torus
 
-const geometry =new THREE.SphereGeometry(10, 16, 16);
+const geometry = new THREE.SphereGeometry(10, 16, 16);
 const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
 const torus = new THREE.Mesh(geometry, material);
 
@@ -38,15 +52,15 @@ scene.add(pointLight, ambientLight);
 
 // Helpers
 
-const lightHelper = new THREE.PointLightHelper(pointLight)
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper)
+// const lightHelper = new THREE.PointLightHelper(pointLight)
+// const gridHelper = new THREE.GridHelper(200, 50);
+// scene.add(lightHelper, gridHelper)
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar() {
-const geometry = new THREE.SphereGeometry(0.5, 32, 16);
-const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+  const geometry = new THREE.SphereGeometry(0.5, 32, 16);
+  const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
 
   const star = new THREE.Mesh(geometry, material);
 
@@ -59,28 +73,26 @@ const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
 }
 Array(200).fill().forEach(addStar);
 
-
-
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load("space.jpg");
 scene.background = spaceTexture;
 
 // Avatar
 
-const jeffTexture = new THREE.TextureLoader().load('space.jpg');
+const jeffTexture = new THREE.TextureLoader().load("space.jpg");
 
-const jeff = new THREE.Mesh(new THREE.BoxGeometry(3, 5, 3), new THREE.MeshBasicMaterial({ map: jeffTexture }));
+const jeff = new THREE.Mesh(
+  new THREE.BoxGeometry(3, 5, 3),
+  new THREE.MeshBasicMaterial({ map: jeffTexture })
+);
 
 // scene.add(jeff);
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
-
-
-
+const moonTexture = new THREE.TextureLoader().load("moon.jpg");
+const normalTexture = new THREE.TextureLoader().load("normal.jpg");
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -92,17 +104,14 @@ const moon = new THREE.Mesh(
 
 scene.add(moon);
 
-moon.position.z = -40;
-moon.position.setY(10);
+moon.position.z = -10;
 moon.position.setX(2);
 
 jeff.position.z = 10;
 jeff.position.x = 2;
 
 //earth
-const earthTexture = new THREE.TextureLoader().load(
-  "earth.jpg"
-);
+const earthTexture = new THREE.TextureLoader().load("earth.jpg");
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry(10, 32, 32),
   new THREE.MeshStandardMaterial({
@@ -111,11 +120,8 @@ const earth = new THREE.Mesh(
   })
 );
 scene.add(earth);
-earth.position.z = -100;
+earth.position.z = -30;
 earth.position.setX(-10);
-
-
-
 
 // Scroll Animation
 
@@ -153,6 +159,3 @@ function animate() {
 }
 
 animate();
-
-
-

@@ -76,3 +76,10 @@ canvas {
   section{
     height: 100vh;
   }
+  h1{
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+    color: azure;
+    
+  }
